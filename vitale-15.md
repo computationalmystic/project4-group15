@@ -8,13 +8,16 @@ https://github.com/JosephCVitale/jcv3m4/blob/master/assignments/Assignment%202.p
   1. Create a new class, student
   2. Give student class two functions, login() and logout()
   3. Give student the fields username and password
+  
 2. Select one of their currently enrolled courses.
   1. Give student a field to list their courses and sections
   2. Give student a method to display all courses from their course list
   3. Give student a method to select course
+  
 3. Select assignment. 
   1. Give student a method to display all assignments from a selected course
   2. Give student a method to select assignment
+  
 4. Submit assignment.
   1. Give student a method to upload a file to a database
 
