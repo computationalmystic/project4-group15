@@ -1,5 +1,5 @@
 # Design Document: 
-https://github.com/tanner-burkin/jtbd4k/blob/master/assignment-two/Assignment%204.pdf
+https://github.com/JosephCVitale/jcv3m4/blob/master/assignments/Assignment%202.pdf
 
 # To Do List
 
