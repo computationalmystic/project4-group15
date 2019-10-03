@@ -5,9 +5,9 @@ https://github.com/JosephCVitale/jcv3m4/blob/master/assignments/Assignment%202.p
 
 ## Student Tasks
 1. Log in to the system. 
-  a. Create a new class, student
-  b. Give student class two functions, login() and logout()
-  c. Give student the fields username and password
+  - Create a new class, student
+  - Give student class two functions, login() and logout()
+  - Give student the fields username and password
   
 2. Select one of their currently enrolled courses.
   1. Give student a field to list their courses and sections
