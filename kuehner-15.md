@@ -17,3 +17,5 @@
     This method takes an array of ID's that can be added into a group to create a group of TA's or Students with specific permissions.
   * Create method called "removeStudent (searchStudent(Student,Course))
     This method takes the output of the "searchStudent" method and removes student from a course
+   
+## 
