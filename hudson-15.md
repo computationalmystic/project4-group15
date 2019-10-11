@@ -1,4 +1,6 @@
-# Matt Hudosn - Project 4 Todo List Document
+# Matt Hudson - Project 4 Todo List Document
+
+Design document reference: https://github.com/hudso1898/mrh4hd/blob/master/assignment-four/design.md
 
 There are 3 main categories of work to do: 
 
