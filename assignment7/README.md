@@ -11,7 +11,7 @@ The running application can be found here: http://18.216.234.69/augur/
 Not all repositories have data that is retirevable from the API. For a demo, the rails repository is a good repo to use.
 
 ### Installing
-To run the code on your local environment, install npm in the project4-group15/assignment7/code/assignment7Group15/ directory
+To run the code on your local environment, clone the repository and install npm in the project4-group15/assignment7/code/assignment7Group15/ directory
 ```
 npm install
 ```
