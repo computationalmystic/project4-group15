@@ -32,9 +32,9 @@ ng serve -o
 
 ## Built With
 * [Angular](https://angular.io/docs) - The web framework used
-* [Angular Material](https://material.angular.io/) - for UI components
-* [ng2-chart](https://www.npmjs.com/package/ng2-charts) - for charts used to visualize data
-* [Amazon EC2](https://docs.aws.amazon.com/ec2/index.html) - for deployment
+* [Angular Material](https://material.angular.io/) - For UI components
+* [ng2-chart](https://www.npmjs.com/package/ng2-charts) - For charts used to visualize data
+* [Amazon EC2](https://docs.aws.amazon.com/ec2/index.html) - For deployment
 
 ## Authors
 * **Joseph Vitale** - [JosephCVitale](https://github.com/PurpleBooth)
