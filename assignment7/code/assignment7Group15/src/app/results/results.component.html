@@ -1,14 +1,23 @@
-<p>Commits</p>
-<p *ngFor='let committer of committers'>
-    {{committer.email}}, {{committer.commits}}
-</p>
+<br><br>
+<h2 class='centered'>Results for repo: {{repoName}}</h2>
 <br>
-<p>Pull Requests</p>
-<p *ngFor='let pr of prs'>
-        {{pr.date}}: rate = {{pr.rate}}
+<h3 class=centered>Commits</h3>
+<p *ngFor='let committer of committers' class=centered>
+    {{committer.email}} - {{committer.commits}} commits
 </p>
+<p *ngIf='commitsFailedToLoad' class=centered>The API encountered an internal server error.</p>
+<p *ngIf='committers.length == 0 && commitsLoaded' class=centered>There is no commit data to display for this repo.</p>
 <br>
-<p>Issues in the Backlog</p>
-<p *ngFor='let backlog of backlogs'>
-    {{backlog.issue_backlog}}
+<h3 class=centered>Pull Requests</h3>
+<p *ngFor='let pr of prs' class=centered>
+        Date: {{pr.date}}; ratio = {{pr.rate}}
 </p>
+<p *ngIf='prsFailedToLoad' class=centered>The API encountered an internal server error.</p>
+<p *ngIf='prs.length == 0 && prsLoaded' class=centered>There are no pull requests for this repo.</p>
+<br>
+<h3 class=centered>Issues in the Backlog</h3>
+<p *ngFor='let backlog of backlogs' class=centered>
+    <strong>{{backlog.issue_backlog}} issues</strong>
+</p>
+<p *ngIf='backlogFailedToLoad' class=centered>The API encountered an internal server error.</p>
+<p *ngIf='backlogs.length == 0 && backlogLoaded' class=centered>There are no issues in the backlog.</p>

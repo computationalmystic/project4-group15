@@ -13,9 +13,18 @@ export class ApiService {
   committers: Array<Committer> = [];
   prs: Array<PR> = [];
   backlogs: Array<Backlog> = [];
+  repoNames: Array<string> = [];
 
   reposLoaded = false;
-  resultsLoaded = false;
+  commitsLoaded = false;
+  prsLoaded = false;
+  backlogLoaded = false;
+
+  reposFailedToLoad = false;
+  commitsFailedToLoad = false;
+  prsFailedToLoad = false;
+  backlogFailedToLoad = false;
+
 
   baseUrl = "http://augur.osshealth.io:5000/api/unstable/"
   getRepoAPI() {
@@ -26,8 +35,11 @@ export class ApiService {
           repo_group_id: repo.repo_group_id,
           repo_name: repo.repo_name
         });
+        this.repoNames.push(repo.repo_name.toString());
       }
       this.reposLoaded = true;
+    }, (error) => {
+      this.reposFailedToLoad = true;
     });
   }
 
@@ -48,6 +60,9 @@ export class ApiService {
             commits: committer.commits
           });
         }
+        this.commitsLoaded = true;
+      }, (error) => {
+        this.commitsFailedToLoad = true;
       }
     );
   }
@@ -61,6 +76,9 @@ export class ApiService {
             rate: pr.rate
           });
         }
+        this.prsLoaded = true;
+      }, (error) => {
+        this.prsFailedToLoad = true;
       }
     );
   }
@@ -73,7 +91,29 @@ export class ApiService {
             issue_backlog: backlog.issue_backlog
           });
         }
+        this.backlogLoaded = true;
+      }, (error) => {
+        this.backlogFailedToLoad = true;
       }
     );
+  }
+
+  reset() {
+    this.committers = [];
+    this.prs = [];
+    this.backlogs = [];
+    this.commitsFailedToLoad = false;
+    this.prsFailedToLoad = false;
+    this.backlogFailedToLoad = false;
+    this.commitsLoaded = false;
+    this.prsLoaded = false;
+    this.backlogLoaded = false;
+  }
+
+  getRepoNameByIds(gid: String, rid: String) : String {
+    for (let repo of this.repos) {
+      if(repo.repo_group_id == gid && repo.repo_id == rid) return repo.repo_name;
+    }
+    return "...";
   }
 }

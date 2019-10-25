@@ -1,13 +1,21 @@
-<p *ngIf='!reposLoaded'>Loading...</p>
+<mat-toolbar color=primary>
+  <h2>CS4320 Assignment 7 - Group 15 | Augur Visualization</h2>
+</mat-toolbar>
+<div *ngIf='!reposLoaded'>
+  <p>Loading repos...</p><mat-spinner id=spinner></mat-spinner>
+</div>
+
 <form *ngIf='reposLoaded'>
   <mat-form-field>
-    <input matInput [matAutocomplete]='auto' [formControl]="repo">
+    <input matInput [matAutocomplete]='auto' [formControl]="repo" required placeholder="Repo Name">
     <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor='let repo of repos' placeholder="Repo Name..." [value]='repo.repo_name'>
+    <mat-option *ngFor='let repo of filteredRepos | async' [value]='repo.repo_name'>
      {{repo.repo_name}}
     </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button mat-button (click)='search()'>Search</button>
+  <button mat-button (click)='search()' [disabled]='!this.repo.valid'>Search</button>
 </form>
+<mat-divider></mat-divider>
 <router-outlet></router-outlet>
+<h4 class=muted>  Matt Hudson, Tim Kuehner, Joe Vitale</h4>

@@ -12,9 +12,7 @@ export class ResultsComponent implements OnInit {
   groupId;
   repoId;
   constructor(private route: ActivatedRoute,
-    private apiService: ApiService) {
-    
-     }
+    private apiService: ApiService) {}
 
   get committers() {
     return this.apiService.committers;
@@ -24,6 +22,30 @@ export class ResultsComponent implements OnInit {
   }
   get backlogs() {
     return this.apiService.backlogs;
+  }
+  get repoName() {
+    return this.apiService.getRepoNameByIds(this.groupId, this.repoId);
+  }
+  get reposFailedToLoad() {
+    return this.apiService.reposFailedToLoad;
+  }
+  get commitsFailedToLoad() {
+    return this.apiService.commitsFailedToLoad;
+  }
+  get prsFailedToLoad() {
+    return this.apiService.prsFailedToLoad;
+  }
+  get backlogFailedToLoad() {
+    return this.apiService.backlogFailedToLoad;
+  }
+  get commitsLoaded() {
+    return this.apiService.commitsLoaded;
+  }
+  get prsLoaded() {
+    return this.apiService.prsLoaded;
+  }
+  get backlogLoaded() {
+    return this.apiService.backlogLoaded;
   }
   ngOnInit() {
     this.route.params.subscribe((params) => {
