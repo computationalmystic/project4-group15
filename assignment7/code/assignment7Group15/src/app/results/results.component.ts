@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
-import { ChartType } from 'chart.js';
+import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
@@ -14,6 +14,8 @@ export class ResultsComponent implements OnInit {
   groupId;
   repoId;
   public doughnut: ChartType = 'doughnut';
+  public line: ChartType = 'line';
+  public bar: ChartType = 'bar';
   constructor(private route: ActivatedRoute,
     private apiService: ApiService) {}
 
@@ -77,6 +79,21 @@ export class ResultsComponent implements OnInit {
     }
     return tmp;
   }
-
+  public get prData(): MultiDataSet {
+    let data: MultiDataSet = [];
+    let tmp: number[] = [];
+    for (let pr of this.prs) {
+      tmp.push(pr.rate.valueOf());
+    }
+    data.push(tmp);
+    return data;
+  }
+  public get prLabels(): Label[] {
+    let tmp: string[] = [];
+    for (let pr of this.prs) {
+      tmp.push(pr.date.split("T")[0].toString());
+    }
+    return tmp;
+  }
 
 }
