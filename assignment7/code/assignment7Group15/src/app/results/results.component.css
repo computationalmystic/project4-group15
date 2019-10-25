@@ -2,3 +2,9 @@
     margin: auto;
     text-align: center;
 }
+.muted {
+    color: grey;
+}
+.strong {
+    color: black;
+}

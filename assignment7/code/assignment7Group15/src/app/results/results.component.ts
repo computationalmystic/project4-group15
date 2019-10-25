@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-results',
@@ -11,6 +13,7 @@ export class ResultsComponent implements OnInit {
 
   groupId;
   repoId;
+  public doughnut: ChartType = 'doughnut';
   constructor(private route: ActivatedRoute,
     private apiService: ApiService) {}
 
@@ -55,8 +58,25 @@ export class ResultsComponent implements OnInit {
       this.apiService.getPullRequestRates(this.groupId, this.repoId);
       this.apiService.getBacklog(this.groupId, this.repoId);
     });
-   
 
   }
+
+  public get committerData(): MultiDataSet {
+    let data: MultiDataSet = [];
+    let tmp: number[] = [];
+    for (let committer of this.committers) {
+      tmp.push(committer.commits.valueOf());
+    }
+    data.push(tmp);
+    return data;
+  }
+  public get committerLabels(): Label[] {
+    let tmp: Label[] = [];
+    for (let committer of this.committers) {
+      tmp.push(committer.email.toString() + " - " + committer.commits.toString() + " commits");
+    }
+    return tmp;
+  }
+
 
 }
