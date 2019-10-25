@@ -19,7 +19,7 @@ Then, in the same directory, install ng2-charts using npm.
 ```
 npm install ng2-charts@2.3.0 --save
 ```
-You will also have to install Chart.js library (it is a peer dependency of this library) (more info can be found in the official chart.js documentation)
+You will also have to install Chart.js library (it is a peer dependency of this library) (more info can be found in the official chart.js documentation).
 ```
 npm install chart.js --save
 ```
