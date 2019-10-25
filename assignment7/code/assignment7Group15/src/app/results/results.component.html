@@ -1,0 +1,9 @@
+<p>Commits</p>
+<p *ngFor='let committer of committers'>
+    {{committer.email}}, {{committer.commits}}
+</p>
+<br>
+<p>Pull Requests</p>
+<p *ngFor='let pr of prs'>
+        {{pr.date}}: rate = {{pr.rate}}
+</p>
