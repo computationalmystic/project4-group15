@@ -12,7 +12,9 @@ export class ResultsComponent implements OnInit {
   groupId;
   repoId;
   constructor(private route: ActivatedRoute,
-    private apiService: ApiService) { }
+    private apiService: ApiService) {
+    
+     }
 
   get committers() {
     return this.apiService.committers;
@@ -20,11 +22,18 @@ export class ResultsComponent implements OnInit {
   get prs() {
     return this.apiService.prs;
   }
+  get backlogs() {
+    return this.apiService.backlogs;
+  }
   ngOnInit() {
-    this.groupId = this.route.snapshot.params.gid;
-    this.repoId = this.route.snapshot.params.rid;
-    this.apiService.getCommitters(this.groupId, this.repoId);
-    this.apiService.getPullRequestRates(this.groupId, this.repoId);
+    this.route.params.subscribe((params) => {
+      this.groupId = this.route.snapshot.params.gid;
+      this.repoId = this.route.snapshot.params.rid;
+      this.apiService.getCommitters(this.groupId, this.repoId);
+      this.apiService.getPullRequestRates(this.groupId, this.repoId);
+      this.apiService.getBacklog(this.groupId, this.repoId);
+    });
+   
 
   }
 

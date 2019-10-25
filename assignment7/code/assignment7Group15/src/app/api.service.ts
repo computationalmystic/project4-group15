@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Repo, Committer, PR } from './types'
+import { Repo, Committer, PR, Backlog } from './types'
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class ApiService {
   repos: Array<Repo> = [];
   committers: Array<Committer> = [];
   prs: Array<PR> = [];
+  backlogs: Array<Backlog> = [];
 
   reposLoaded = false;
   resultsLoaded = false;
@@ -58,6 +59,18 @@ export class ApiService {
           this.prs.push({
             date: pr.date,
             rate: pr.rate
+          });
+        }
+      }
+    );
+  }
+
+  getBacklog(groupId: String, repoId: String) {
+    this.http.get(this.baseUrl + "repo-groups/" + groupId + "/repos/" + repoId + '/issue-backlog').subscribe(
+      (data: Array<Backlog>) => {
+        for (let backlog of data) {
+          this.backlogs.push({
+            issue_backlog: backlog.issue_backlog
           });
         }
       }

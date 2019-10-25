@@ -11,3 +11,6 @@ export interface PR {
     date: String,
     rate: Number
 }
+export interface Backlog {
+    issue_backlog: Number
+}
