@@ -3,6 +3,9 @@
 # Assignment 7 - User Experience & Integration Focus (team)
 For this project, we created a web application which allows a user to visualize a GitHub repository's data retrieved from Augur's API. The user can search for a repository in order to display information about the commits per repo contributor, its pull request acceptance rate over time, and the current number of issues currently open. The commits per contributor visualization lists the individual commits for the top eight contributor and the total commits for all other contributors. This data is then displayed on a pie chart. The pull request visualization shows how the pull acceptance rate (pull requests merged/all pull requests) changes over time using a line graph. The issue backlog visualization shows how many issues are still currently open on the repository. 
 
+## Technical Approach and Rationale
+ For this project we decided to create a web application using primarily Angular. We chose Angular because Joe and Matt are familiar with Angular development, and Tim has a background in web development as well as object-oriented programming languages. We also decided to use an AWS EC2 to serve and deploy the code, as we all have past experience using the service. To accomplish the task, we met on Thursday from 5pm to 8pm and worked together, outlining the system infrastructure and prototyping the most critical components such as retrieving data with AJAX requests and displaying results dynamically using Angular and typescript. We then added a search and autocomplete filter for selecting the repository. After a basic prototype was constructed, more detailed visualization techniques were implemented such as a pie chart and a line chart. The app was then built and deployed on an AWS EC2 instance. 
+ 
 ## Getting Started
 
 ### View Running Instance
