@@ -1,0 +1,39 @@
+<br><br>
+<h2 class='centered'>Results for repo: {{repoName}}</h2>
+<br>
+<h3 class=centered>1. Commits</h3>
+<div style="display: block">
+<canvas *ngIf='committers.length != 0 && commitsLoaded' baseChart
+[chartType]='doughnut' [data]='committerData' [labels]='committerLabels'>
+</canvas>
+</div>
+<!-- <p *ngFor='let committer of committers' class=centered>
+    {{committer.email}} - {{committer.commits}} commits
+</p> -->
+<p *ngIf='commitsFailedToLoad' class=centered>The API encountered an internal server error trying to obtain top-committers for {{repoName}}.</p>
+<p *ngIf='committers.length == 0 && commitsLoaded' class=centered>There is no commit data to display for this repo.</p>
+<br>
+<h3 class=centered>2. Pull Request Ratios</h3>
+<br>
+<div style="display: block" *ngIf='prs.length != 0 && commitsLoaded'>
+<canvas *ngIf='prs.length > 1' baseChart
+[chartType]='line' [data]='prData' [labels]='prLabels' [legend]='false'>
+</canvas>
+<canvas *ngIf='prs.length == 1' baseChart
+        [chartType]='bar' [data]='prData' [labels]='prLabels' [legend]='false'>
+        </canvas>
+</div>
+<!-- <p *ngFor='let pr of prs' class=centered>
+        Date: {{pr.date}}; ratio = {{pr.rate}}
+</p> -->
+<p *ngIf='prsFailedToLoad' class=centered>The API encountered an internal server error.</p>
+<p *ngIf='prs.length == 0 && prsLoaded' class=centered>There are no pull requests for this repo.</p>
+<br>
+<h3 class=centered>3. Issues in the Backlog</h3>
+<br>
+<h2 *ngFor='let backlog of backlogs' class=centered>
+    <span class=muted>There are <strong class=strong>{{backlog.issue_backlog}}</strong> issues in the backlog.</span>
+</h2>
+<p *ngIf='backlogFailedToLoad' class=centered>The API encountered an internal server error trying to obtain backlog information.</p>
+<h2 *ngIf='backlogs.length == 0 && backlogLoaded' class=centered><span class=muted>There are no issues in the backlog.</span></h2>
+<br><br><br><br>

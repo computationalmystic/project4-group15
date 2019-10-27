@@ -1,0 +1,10 @@
+.muted {
+    color: grey;
+    bottom: 0%;
+    left: 80%;
+    position: fixed;
+}
+#spinner {
+    height: 50px;
+    width: 50px;
+}
