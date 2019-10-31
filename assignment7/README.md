@@ -11,7 +11,7 @@ For this project, we created a web application which allows a user to visualize 
 ## Getting Started
 
 ### View Running Instance
-The running application can be found here: http://18.216.234.69/augur/
+The running application can be found here: http://ec2-3-19-62-119.us-east-2.compute.amazonaws.com/augur
 
 Note that the web application has to be served over **http** (not HTTPS) since the API uses http. Attempting to access the API from a server running on HTTPS produces errors, which is why we couldn't deploy the application on our main domain virtual hosts.
 
